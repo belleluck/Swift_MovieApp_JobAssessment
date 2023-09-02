@@ -18,9 +18,9 @@ target 'MovieApp' do
   # Pods for MovieApp
   
   # https://cocoapods.org/pods/FirebaseCore
-  pod 'Firebase/Core', '~> 8.9.1'
-  
-  pod 'Firebase/Database'
+#  pod 'Firebase/Core', '~> 8.9.1'
+#  
+#  pod 'Firebase/Database'
   
   # https://github.com/scalessec/Toast-Swift
   pod 'Toast-Swift', '~> 5.0.1'
@@ -33,7 +33,7 @@ target 'MovieApp' do
   pod 'CryptoSwift'
   
   # https://github.com/stephencelis/SQLite.swift
-  pod 'SQLite.swift', '~> 0.13.1'
+  pod 'SQLite.swift', '~> 0.14.0'
   
   # https://github.com/Alamofire/Alamofire
   pod 'Alamofire', '~> 5.4.4'

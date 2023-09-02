@@ -54,6 +54,7 @@ class MovieDB {
     }
     
     func createTable() {
+        print("creating table MovieDB")
         do {
             try db!.run(tableMovie.create(ifNotExists: true) { t in
                 t.column(row_id, primaryKey: true)
@@ -79,6 +80,25 @@ class MovieDB {
                 poster_url   <- movie.posterURL,
                 poster_data  <- movie.posterData
             ))
+        } catch {
+            print("Insert movie to db failed: \(error.localizedDescription)")
+        }
+    }
+    
+    func addMovies(movies: [Movie]) {
+        print("\n\nget the movie: ")
+        dump(movies)
+        do {
+            for movie in movies {
+                try db!.run(tableMovie.insert(
+                    movie_title  <- movie.movieTitle,
+                    movie_type   <- movie.movieType,
+                    movie_year   <- movie.movieYear,
+                    imdb_id      <- movie.imdbID,
+                    poster_url   <- movie.posterURL,
+                    poster_data  <- movie.posterData
+                ))
+            }
         } catch {
             print("Insert movie to db failed: \(error.localizedDescription)")
         }
@@ -112,7 +132,6 @@ class MovieDB {
         }
         return movies
     }
-    
     
     func deleteMovie() {
         do {

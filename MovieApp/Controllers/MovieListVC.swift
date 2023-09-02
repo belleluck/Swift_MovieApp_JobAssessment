@@ -62,9 +62,11 @@ class MovieListVC: UIViewController {
         movieCollectionView.reloadData()
     }
     
-    func fetchMovieListData() {
+    func fetchMovieListData(group: DispatchGroup) {
+        group.enter()
         
         guard let searchText = searchBar.text else {
+            group.leave()
             return
         }
         
@@ -94,14 +96,14 @@ class MovieListVC: UIViewController {
             
             switch (response.result) {
                 case .success(let value):
-                
+                    
                     if let json = value as? [String: Any] {
-                        print("got the json data")
-                        print(json)
+//                        print("got the json data")
+//                        print(json)
+                        MovieDB.instance.deleteMovie()
+                        var movies: [Movie] = []
                         
                         let jsonArray = json["Search"] as! [[String: Any]]
-                        
-                        MovieDB.instance.deleteMovie()
                         
                         for mItem in jsonArray {
                             let movie: Movie = Movie(
@@ -112,15 +114,13 @@ class MovieListVC: UIViewController {
                                 posterURL: mItem["Poster"] as? String ?? "",
                                 posterData: ""
                             )
-                            MovieDB.instance.addMovie(movie: movie)
+                            movies.append(movie)
+                            
                         }
                         print("download movie list successful")
                         
-                        let movieList = MovieDB.instance.getAllMovie()
-                        if (movieList.count > 0) {
-                            arrMovies = movieList
-                            refreshCollection()
-                        }
+                        MovieDB.instance.addMovies(movies: movies)
+                        
                     }
                     else {
                         print("failed to download movie list")
@@ -129,6 +129,7 @@ class MovieListVC: UIViewController {
                 case .failure(let error):
                     print(error)
             }
+            group.leave()
         }
     }
     
@@ -224,7 +225,34 @@ extension MovieListVC: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         searchBar.setShowsCancelButton(false, animated: true)
         print("Search bar search button clicked: \(String(describing: searchBar.text))")
-        fetchMovieListData()
+        
+        if (searchBar.text == "") {
+            ISGlobal.instance.toastMessage(view: self.view, message: "Please key in something to search")
+            return
+        }
+        
+        if (Connectivity.isConnectedToInternet == true) {
+            ISGlobal.instance.displayLoadingScreen(vc: self)
+            
+            let group: DispatchGroup = DispatchGroup()
+            fetchMovieListData(group: group)
+            
+            group.notify(queue: .main) { [self] in
+                ISGlobal.instance.removeLoadingScreen()
+                let movieList = MovieDB.instance.getAllMovie()
+                if (movieList.count > 0) {
+                    arrMovies = movieList
+                    refreshCollection()
+                }
+                else {
+                    ISGlobal.instance.toastMessage(view: self.view, message: "No match movies found")
+                }
+            }
+        }
+        else {
+            ISGlobal.instance.toastMessage(view: self.view, message: "No network connection")
+        }
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -280,23 +308,25 @@ extension MovieListVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         print("item: \(indexPath.row)")
         print("item id: \(arrMovies[indexPath.row].imdbID)")
         
-        ISGlobal.instance.displayLoadingScreen(vc: self)
-        
-        let group: DispatchGroup = DispatchGroup()
-        fetchMovieDetailData(movieID: arrMovies[indexPath.row].imdbID, group: group)
-        
-        group.notify(queue: .main) { [self] in
-            ISGlobal.instance.removeLoadingScreen()
-            if (MovieDetailDB.instance.getCount() > 0) {
-                let vc: MovieDetailVC = UIStoryboard.Movie.movieDetailVC() as! MovieDetailVC
-                vc.selectedMovieID = arrMovies[indexPath.row].imdbID
-        //        vc.selectedMovieDetail = mDetailData
-                self.navigationController?.pushViewController(vc, animated: true)
+        if (Connectivity.isConnectedToInternet == true) {
+            ISGlobal.instance.displayLoadingScreen(vc: self)
+            
+            let group: DispatchGroup = DispatchGroup()
+            fetchMovieDetailData(movieID: arrMovies[indexPath.row].imdbID, group: group)
+            
+            group.notify(queue: .main) { [self] in
+                ISGlobal.instance.removeLoadingScreen()
+                if (MovieDetailDB.instance.getCount() > 0) {
+                    let vc: MovieDetailVC = UIStoryboard.Movie.movieDetailVC() as! MovieDetailVC
+                    vc.selectedMovieID = arrMovies[indexPath.row].imdbID
+            //        vc.selectedMovieDetail = mDetailData
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
         }
-        
-        
-        
-        
+        else {
+            ISGlobal.instance.toastMessage(view: self.view, message: "No network connection")
+        }
+         
     }
 }

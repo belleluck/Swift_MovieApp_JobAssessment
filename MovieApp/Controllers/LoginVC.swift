@@ -6,11 +6,11 @@
 //
 
 import UIKit
-import FirebaseDatabase
+//import FirebaseDatabase
 
 class LoginVC: UIViewController {
     
-    private let database = Database.database().reference()
+//    private let database = Database.database().reference()
 
     @IBOutlet weak var tfUsername: UITextField!
     @IBOutlet weak var tfPassword: UITextField!

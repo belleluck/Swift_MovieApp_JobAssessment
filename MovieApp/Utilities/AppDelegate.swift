@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 import IQKeyboardManagerSwift
 
 
@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        setDBVersion()
-        checkDBVersionAndUpdate()
+//        setDBVersion()
+//        checkDBVersionAndUpdate()
         
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
         
         IQKeyboardManager.shared.enable = true
         
@@ -40,25 +40,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    @objc func checkDBVersionAndUpdate() {
-        var shouldLogout = false
-        
-        let movieLatestDbVersion = UserDefaultsHelper.DatabaseVersion.instance.movieDBVersion
-        if MovieDB.instance.getDbVersion() != movieLatestDbVersion {
-            MovieDB.instance.setDbVersion(version: movieLatestDbVersion)
-            MovieDB.instance.updateTable()
-            shouldLogout = true
-        }
-        
-        if shouldLogout {
-            UserDefaultsHelper.UserAccount.instance.userName = ""
-            UserDefaultsHelper.UserAccount.instance.userPassword = ""
-        }
-    }
-    
-    @objc func setDBVersion() {
-        UserDefaultsHelper.DatabaseVersion.instance.movieDBVersion = 1
-    }
+//    @objc func checkDBVersionAndUpdate() {
+//        var shouldLogout = false
+//
+//        let movieLatestDbVersion = UserDefaultsHelper.DatabaseVersion.instance.movieDBVersion
+//        if MovieDB.instance.getDbVersion() != movieLatestDbVersion {
+//            MovieDB.instance.setDbVersion(version: movieLatestDbVersion)
+//            MovieDB.instance.updateTable()
+//            shouldLogout = true
+//        }
+//
+//        if shouldLogout {
+//            UserDefaultsHelper.UserAccount.instance.userName = ""
+//            UserDefaultsHelper.UserAccount.instance.userPassword = ""
+//        }
+//    }
+//
+//    @objc func setDBVersion() {
+//        UserDefaultsHelper.DatabaseVersion.instance.movieDBVersion = 1
+//    }
 
 
 }

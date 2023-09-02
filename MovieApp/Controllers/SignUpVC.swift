@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseDatabase
+//import FirebaseDatabase
 
 class SignUpVC: UIViewController {
     
@@ -25,7 +25,7 @@ class SignUpVC: UIViewController {
     
     @IBOutlet weak var viewBtnSignUp: UIView!
     
-    private let database = Database.database().reference()
+//    private let database = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
