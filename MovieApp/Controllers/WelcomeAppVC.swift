@@ -20,7 +20,7 @@ class WelcomeAppVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        if (UserDefaultsHelper.UserAccount.instance.userName == "VVVBB" && UserDefaultsHelper.UserAccount.instance.userPassword == "@bcd1234") {
+        if (UserDefaultsHelper.UserAccount.instance.userName != "" && UserDefaultsHelper.UserAccount.instance.userPassword != "") {
             print("have user record")
             
             let vc: HomeVC = UIStoryboard.Main.homeVC() as! HomeVC

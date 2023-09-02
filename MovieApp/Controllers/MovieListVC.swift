@@ -173,11 +173,11 @@ class MovieListVC: UIViewController {
                         selectecdMovie = MovieDetail(
                             id: mID,
                             movieTitle: json["Title"] as? String ?? "",
-                            movieYear: json["Year"] as? Int ?? 0,
+                            movieYear: Int(json["Year"] as? String ?? "0")!,
                             movieGenre: json["Genre"] as? String ?? "",
-                            imdbRating: json["imdbRating"] as? Float ?? 0.0,
-                            imdbVotes: json["imdbRating"] as? String ?? "",
-                            moviePlot: json["imdbRating"] as? String ?? "",
+                            imdbRating: Float(json["imdbRating"] as? String ?? "0")!,
+                            imdbVotes: json["imdbVotes"] as? String ?? "",
+                            moviePlot: json["Plot"] as? String ?? "",
                             imgPosterURL: json["Poster"] as? String ?? "",
                             otherRatingSource: mDetailRatings
                         )
@@ -250,8 +250,7 @@ extension MovieListVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         
         cell.imgPoster.downloadedMoviePosterFrom(link: arrMovies[indexPath.row].posterURL)
         cell.gradientOverlay.applyGradient(colours: [UIColor.clear, UIColor.black])
-//
-////        cell.imgPoster.image = UIImage(named: "sample_poster")
+        
         cell.lblMovieName.text = arrMovies[indexPath.row].movieTitle
         return cell
     }

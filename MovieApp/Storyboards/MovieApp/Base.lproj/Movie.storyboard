@@ -437,7 +437,15 @@
                     </view>
                     <size key="freeformSize" width="414" height="736"/>
                     <connections>
+                        <outlet property="imgBackground" destination="omi-QS-MP6" id="XAT-1N-MU4"/>
+                        <outlet property="imgMainPoster" destination="heI-oG-Hnn" id="4rH-Hr-5HI"/>
+                        <outlet property="lblGenre" destination="tN7-9r-vkM" id="k7K-9m-OCm"/>
+                        <outlet property="lblMovieTitle" destination="iTQ-EI-jAu" id="lwW-2w-oPV"/>
+                        <outlet property="lblPlotSummaryBody" destination="hIC-gh-AhC" id="4pf-Bl-AcS"/>
+                        <outlet property="lblRating" destination="yDn-Gb-17N" id="YRp-hr-Rs6"/>
+                        <outlet property="lblVotes" destination="bE5-bc-3SR" id="Tvm-EQ-L7c"/>
                         <outlet property="ratingTableView" destination="mhh-Xh-bTJ" id="p5g-uJ-vho"/>
+                        <outlet property="viewStarRating" destination="8jU-KN-8QM" id="uv4-Xc-Itx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hp8-Z9-h7W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -445,11 +453,6 @@
             <point key="canvasLocation" x="2992.753623188406" y="-29.347826086956523"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="8jU-KN-8QM">
-            <size key="intrinsicContentSize" width="100" height="16"/>
-        </designable>
-    </designables>
     <resources>
         <image name="sample_poster" width="300" height="444"/>
         <image name="white_bottom_left_rectangle" width="519" height="519"/>

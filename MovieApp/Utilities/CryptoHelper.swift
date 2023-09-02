@@ -11,7 +11,7 @@ import CryptoSwift
 class CryptoHelper {
 
     // 10 char secret key
-    private static let key = "b31131uck!";
+    private static let key = "b31131uck!123456";
 
     // Custom function to replace unocide symbol "+" to encoded characters "%2b"
     public func encryptPassword(plainText: String) -> String {

@@ -31,8 +31,20 @@ class SignUpVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        navigationItem.hidesBackButton = true
+        let btnBack = UIButton(type: .system)
+        btnBack.setImage(UIImage(systemName: "chevron.backward",
+                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 16, weight: .bold)), for: .normal)
+        btnBack.setTitle("Back", for: .normal)
+        btnBack.titleLabel?.font = .systemFont(ofSize: 17.0, weight: .regular)
+        btnBack.sizeToFit()
+        btnBack.addTarget(self, action: #selector(btnBackTapped), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btnBack)
     }
-
+    
+    @objc func btnBackTapped(sender: UIBarButtonItem) {
+        navigationController?.popToRootViewController(animated: true)
+    }
 
     @IBAction func btnSignUpTapped(_ sender: Any) {
         print("btn Signup tapped")
