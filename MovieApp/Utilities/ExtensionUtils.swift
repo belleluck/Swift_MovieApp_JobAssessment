@@ -88,3 +88,31 @@ extension UIImageView {
     }
 
 }
+
+extension UIButton {
+    
+    func customActionButton(title: String, titleColor: UIColor, borderColor: UIColor, backgroundColor: UIColor) {
+        
+        //self.backgroundColor = buttBackColor
+        //self.imageView?.backgroundColor = .red
+        //self.titleLabel?.backgroundColor = .black
+        
+        self.setTitle(title, for: .normal)
+        self.setTitleColor(titleColor, for: .normal)
+        self.titleLabel?.font = .systemFont(ofSize: 17)
+        
+        self.layer.cornerRadius = 10
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowOpacity = 0.4
+        self.layer.shadowRadius = 4
+        self.layer.shadowOffset = CGSize(width: 1, height: 1)
+        
+        self.layer.borderWidth = 1
+        self.layer.borderColor = borderColor.cgColor
+        
+        self.layer.backgroundColor = backgroundColor.cgColor
+        
+    }
+    
+}
+

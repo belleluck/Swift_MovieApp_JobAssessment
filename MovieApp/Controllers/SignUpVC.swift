@@ -25,6 +25,8 @@ class SignUpVC: UIViewController {
     
     @IBOutlet weak var viewBtnSignUp: UIView!
     
+    @IBOutlet weak var btnSignUp: UIButton!
+    
 //    private let database = Database.database().reference()
     
     override func viewDidLoad() {
@@ -40,6 +42,8 @@ class SignUpVC: UIViewController {
         btnBack.sizeToFit()
         btnBack.addTarget(self, action: #selector(btnBackTapped), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btnBack)
+        
+        btnSignUp.customActionButton(title: "Sign up", titleColor: UIColor.white, borderColor: ColorConstant.BlueColor.argentinianBlue, backgroundColor: ColorConstant.BlueColor.argentinianBlue)
     }
     
     @objc func btnBackTapped(sender: UIBarButtonItem) {

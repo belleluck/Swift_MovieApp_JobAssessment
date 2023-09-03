@@ -27,6 +27,9 @@ class WelcomeAppVC: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
+        btnLogin.customActionButton(title: "Login", titleColor: UIColor.white, borderColor: ColorConstant.BlueColor.argentinianBlue, backgroundColor: ColorConstant.BlueColor.argentinianBlue)
+        btnSignUp.customActionButton(title: "Sign up", titleColor: ColorConstant.BlueColor.argentinianBlue, borderColor: ColorConstant.BlueColor.argentinianBlue, backgroundColor: UIColor.white)
+        
     }
     
     

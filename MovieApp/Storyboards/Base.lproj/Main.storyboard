@@ -70,14 +70,14 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Login">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="btnLoginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TVD-jE-uEh"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" name="argentinian_blue"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="wgE-es-6tL" firstAttribute="top" secondItem="yy8-5k-zve" secondAttribute="top" id="4IH-bZ-Tn4"/>
                                                     <constraint firstAttribute="trailing" secondItem="wgE-es-6tL" secondAttribute="trailing" id="Z3q-Mb-2hW"/>
@@ -100,7 +100,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="JbZ-zS-Tif" firstAttribute="leading" secondItem="AGu-px-iqG" secondAttribute="leading" id="cK9-yE-25m"/>
                                                     <constraint firstAttribute="trailing" secondItem="JbZ-zS-Tif" secondAttribute="trailing" id="e2Q-BB-v7c"/>
@@ -269,14 +269,14 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Login">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="btnLoginTapped:" destination="GJI-PL-PFd" eventType="touchUpInside" id="x6l-Lq-PzW"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" name="argentinian_blue"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="enH-lm-DNg" secondAttribute="trailing" id="L2g-86-fUu"/>
                                                     <constraint firstItem="enH-lm-DNg" firstAttribute="leading" secondItem="7rm-88-Usd" secondAttribute="leading" id="Ppu-dW-3Ew"/>
@@ -518,14 +518,14 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Sign Up">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="btnSignUpTapped:" destination="VrB-tU-9PT" eventType="touchUpInside" id="z9L-N3-aZ5"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" name="argentinian_blue"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="iRe-0K-Dd4" firstAttribute="leading" secondItem="rjX-xT-Jcf" secondAttribute="leading" id="1pq-ix-1Hd"/>
                                                     <constraint firstAttribute="trailing" secondItem="iRe-0K-Dd4" secondAttribute="trailing" id="Yww-MD-Q2Z"/>
@@ -596,6 +596,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnSignUp" destination="iRe-0K-Dd4" id="ABS-BP-jkd"/>
                         <outlet property="tfConfirmPwd" destination="Lf0-Ig-ZcT" id="1Lc-Un-HsC"/>
                         <outlet property="tfEmail" destination="l0O-xd-ja3" id="Y7B-h1-vQg"/>
                         <outlet property="tfName" destination="jrm-e6-uMJ" id="fSN-07-KED"/>

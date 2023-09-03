@@ -33,6 +33,8 @@ class LoginVC: UIViewController {
         btnBack.sizeToFit()
         btnBack.addTarget(self, action: #selector(btnBackTapped), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btnBack)
+        
+        btnLogin.customActionButton(title: "Login", titleColor: UIColor.white, borderColor: ColorConstant.BlueColor.argentinianBlue, backgroundColor: ColorConstant.BlueColor.argentinianBlue)
     }
     
     @objc func btnBackTapped(sender: UIBarButtonItem) {
